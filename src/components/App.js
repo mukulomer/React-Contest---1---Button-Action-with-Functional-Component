@@ -2,22 +2,22 @@ import React, { Component, useState } from "react";
 import "./../styles/App.css";
 
 function App() {
-  const [para, setpara] = React.useState(<p></p>);
-  const handelClick = () => {
-    const newPara = (
+  const [para, setPara] = React.useState(false);
+
+  function rederPara() {
+    return (
       <p id="para">
         Hello, I've learnt to use the full-stack evaluation tool. This makes me
         so happy
       </p>
     );
-    setpara(newPara);
-  };
+  }
   return (
     <div id="main">
-      <button id="click" onClick={handelClick}>
-        Click
+      <button id="click" onClick={() => setPara(true)}>
+        click
       </button>
-      {para}
+      {para ? rederPara() : ""}
     </div>
   );
 }
